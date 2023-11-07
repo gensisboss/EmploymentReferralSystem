@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/html" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="utf-8">
+    <title>就业信息网</title>
+    <link rel="stylesheet" type="text/css" href="/static/css/zhuce.css">
+	<script src="/static/js/jquery.js"></script>
+	<script src="/static/js/vector.js"></script>
+	<script>
+		function lastPage(){
+			window.location.href="/company_info/"+String({{page_id}}-1)+"/";
+		}
+		function nextPage(){
+			window.location.href="/company_info/"+String({{page_id}}+1)+"/";
+		}
+	</script>
+	<script>
+	$(document).ready(function(){
+    	//用id获取span
+    	var span1=$('#'+'{{local}}')
+    	//修改span的css样式
+    	span1.css('background-color','red')
+
+    	var span2=$('#'+'{{job}}')
+    	//修改span的css样式
+    	span2.css('background-color','red')
+
+    	var span3=$('#'+'{{xueli}}')
+    	//修改span的css样式
+    	span3.css('background-color','red')
+	})
+	</script>
+<style>
+		ul {
+				list-style: none;
+			}
+			a {
+				text-decoration: none;
+			}
+			/*一级菜单样式, 头部导航栏以及登录注册按钮*/
+			.toubu {
+				z-index: 1000;
+				min-width: 1100px;
+				width: 100%;
+				height: 50px;
+				margin: 0px auto;
+				background-color: white;
+				font-size: 18px;
+				font-family: 微软雅黑;
+				position: fixed;
+			}
+			.toubu ul{
+				height: 50px;
+			}
+		   .toubu ul li {
+			   left: 500px;
+		        float: left;
+		        /*包含块*/
+		        position:relative;
+		    }
+		    .toubu ul li a {
+				display: block;
+				font-size: 18px;
+				width: 160px;
+				height: 50px;
+				line-height: 46px;
+				text-align: center;
+				color: black;
+		        }
+
+			.toubu ul li a:hover {
+				color: black;
+			   background-color: aqua;
+			}
+		/*二级菜单样式*/
+		        .toubu ul li ul {
+		        position:absolute;
+		        top:50px;
+		        left:-500px;
+		        display:none;
+
+		        }
+				.toubu ul li ul li {
+				float:none;
+				}
+				.toubu ul li ul li a{
+				background-color: white;
+				font-size: 16px;
+				color: black;
+				/* border-top:1px solid #ccc; */
+				}
+		            /*一级菜单悬停时二级菜单可见*/
+		        .toubu ul li:hover ul {
+		        display:block;
+		        }
+			.img_1{   /*logo图片设置*/
+				position: absolute;
+				float: left;
+				top: 4px;
+				left: 250px;
+			}
+			.logo_1{
+				position: absolute;
+				float: left;
+				top: 9px;
+				font-family: "楷体";
+				font-size: 25px;
+				font-weight: bold;
+
+				left: 335px;
+			}
+
+			.btn_1{   /*登录按钮设置*/
+				position: absolute;
+				float: left;
+				width: 200px;
+				left: 1150px;
+				top: 8px;
+				color: darkslategrey;
+				background-color: white;
+				font-size: 15px;
+				border: 0;
+			}
+
+	    .company{
+	    	position: relative;
+	    	top:50px;
+	     	height:90%;
+	     	width:100%;
+	     	background:linear-gradient(to right top, #65dfc9,#6cdbeb);
+  		}
+
+  		.fliter{
+  			position: relative;
+  			left:50px;
+  			top:10px;
+  			height:20%;
+	     	width:90%;
+  			font-size:20px;
+  			color:#000;
+  			border-bottom:1px solid #e5e5e5;
+  		}
+
+  		.fliter_title{
+  			border-bottom:1px solid #e5e5e5;
+  		}
+
+  		.fliter_title  .s1{
+  			font-size:25px;
+  			display:inline-block;
+  			height:30px;
+  			line-height:30px;
+  			border-bottom:1px solid red;
+  			margin-right:20px;
+  		}
+
+  		.fliter_title  .s2{
+  			color:red;
+  		}
+
+
+  		.fliter_category li{
+  			list-style:none;
+  			display:flex;
+  			flex-direction:row;
+  			line-height:30px;
+  		}
+
+  		.category_wrap{
+  			margin-left:10px;
+  		}
+
+  		.category_wrap a{
+  		    text-decoration: none;
+            color: #000;
+  			display:inline-block;
+  			height:24px;
+  			line-height:24px;
+  		}
+
+  		.category_wrap a:hover{
+  			background-color:red;
+  		}
+
+
+
+  		.list{
+  			position: relative;
+  			left:50px;
+  		}
+
+
+  		.list_content{
+  			display:flex;
+  			flex-direction:row;
+  			flex-wrap:wrap
+  		}
+
+  		.item{
+  			height:100px;
+  			width:300px;
+  			display:flex;
+  			padding:10px 0;
+  			align-items:hover;
+  			line-height:20px;
+  		}
+  		.fenye p{
+			padding-top: 20px;
+			font-size: 14px;
+			text-align: center;
+			color: #000000;
+		}
+
+		.yehao{
+			position: relative;
+			width: 100%;
+			z-index: 1000;
+			height: 100px;
+			align-items:bottom;
+			bottom:0px;
+			background-color: white;
+			justify-content:bottom;
+		}
+		.yehao p{
+			padding-top: 20px;
+			font-size: 14px;
+			text-align: center;
+			color: #000000;
+		}
+
+    </style>
+</head>
+<body>
+<div id="container">
+	<div id="output">
+		<div class="toubu">
+		    <ul>
+				<a href=""><img src="/static/images/J.png" alt="" class="img_1"  width="70" height="40"/></a>
+				<span class="logo_1">就业信息</span>
+		        <li><a href="/denglu/">首页</a>
+
+		        </li>
+		        <li><a href="">平台数据展</a>
+		            <ul>
+						<li><a href="/test_pic">大数据展示屏</a></li>
+		                <li><a href="/job_demand">各岗位技能分析</a></li>
+		                <li><a href="/xinzi_bar">薪资职位分析</a></li>
+						<li><a href="/pie_bar_test">岗位需求数据分析</a></li>
+		            </ul>
+		        </li>	
+		        <li><a href="">其他功能</a>
+                    <ul>
+                        <li><a href="/xinzi_predict">岗位薪资预测</a></li>
+                    </ul>
+                </li>
+		    </ul>
+			<h2 class="btn_1">欢迎您，{{username}}</h2>
+		</div>
+
+<!--		显示公司内容-->
+		<div class="company">
+<!--			分类筛选-->
+			<div class="fliter">
+				<div class="fliter_title">
+				<span class="s1">分类删选</span><span>共计<span class="s2">344143</span>个公司</span>
+				</div>
+				<div class="fliter_category">
+					<ul>
+						<li>
+							<span>城市:</span>
+							<div class="category_wrap">
+								<span id="全部"><a href="/change_my_local/全部" >全部</a></span>
+								<span id="北京"><a href="/change_my_local/北京">北京</a></span>
+								<span id="上海"><a href="/change_my_local/上海">上海</a></span>
+								<span id="广州"><a href="/change_my_local/广州">广州</a></span>
+								<span id="深圳"><a href="/change_my_local/深圳">深圳</a></span>
+								<span id="杭州"><a href="/change_my_local/杭州">杭州</a></span>
+								<span id="成都"><a href="/change_my_local/成都">成都</a></span>
+								<span id="天津"><a href="/change_my_local/天津">天津</a></span>
+								<span id="青岛"><a href="/change_my_local/青岛">青岛</a></span>
+								<span id="武汉"><a href="/change_my_local/武汉">武汉</a></span>
+								<span id="济南"><a href="/change_my_local/济南">济南</a></span>
+							</div>
+						</li>
+						<li>
+							<span>职位:</span>
+							<div class="category_wrap">
+								<span id="所有"><a href="/change_my_job/所有">所有</a></span>
+								<span id="Java"><a href="/change_my_job/Java">Java</a></span>
+								<span id="Python"><a href="/change_my_job/Python">Python</a></span>
+								<span id="Web"><a href="/change_my_job/web">Web</a></span>
+								<span id="大数据"><a href="/change_my_job/大数据">大数据</a></span>
+								<span id="算法工程师"><a href="/change_my_job/算法工程师">算法工程师</a></span>
+								<span id="DBA"><a href="/change_my_job/DBA">DBA</a></span>
+							</div>
+						</li>
+						<li>
+							<span>学历:</span>
+							<div class="category_wrap">
+								<span id="不限"><a href="/change_my_xueli/不限">不限</a></span>
+								<span id="高中"><a href="/change_my_xueli/高中">高中</a></span>
+								<span id="中专"><a href="/change_my_xueli/中专">中专</a></span>
+								<span id="大专"><a href="/change_my_xueli/大专">大专</a></span>
+								<span id="本科"><a href="/change_my_xueli/本科">本科</a></span>
+								<span id="硕士"><a href="/change_my_xueli/硕士">硕士</a></span>
+								<span id="博士"><a href="/change_my_xueli/博士">博士</a></span>
+								<span id="MBA"><a href="/change_my_xueli/MBA">MBA</a></span>
+							</div>
+						</li>
+					</ul>
+				</div>
+		    </div>
+<!--			数据列表-->
+			<div class="list">
+				<ul class="list_content">
+				{% for item in one_page %}
+				    <li class="item">
+						<div class ="item_info">
+							<p><span style="font-size:15px; font-weight:bold">{{item.company_name}}</span>[{{item.company_locale}}]</p>
+							<p>岗位:<span>{{item.job_name}}</span> 学历:<span>{{item.demand}}</span></p>
+							<p>技术需求:<span>{{item.work_demand}}</span>
+							<p>规模:<span>{{item.guimo}}</span> 薪资:<span>{{item.job_salary}}</span></p>
+						</div>
+					</li>
+				{% endfor %}
+				</ul>
+			</div>
+		</div>
+
+
+
+
+
+		<!-- 设置页号 -->
+		<div class="yehao">
+			<p> <button onclick="lastPage()">上一页</button>
+				第<input id="page_id" type="text" value={{page_id}}>页
+				<button onclick="nextPage()">下一页</button>
+			</p>
+		</div>
+
+
+	</div>
+
+</div>
+</body>
+</html>
